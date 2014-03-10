@@ -5,17 +5,27 @@
 
 int main(int argc, char *argv[]) {
 	unsigned char pol[4]={0x04,0xC1,0x1D,0xB7};
-	unsigned char *mensage="hola";
+	unsigned char *msg="hola";
 	unsigned char res;
 	
-	if (pol[0] & 0x08){
-		printf("%.1X \n",pol[0]);
+	
+	res= 0x05^0x0b;
+	printf("%.1X \n",res);
+	
+	if (msg[0] & 0x08){
+		printf("%.1X \n",msg[0]);
 		printf("entro");
 	}
 	else{
-		printf("%.1X \n",pol[0]);
+		printf("%.1X \n",msg[0]);
 		printf("no entro");
 	}
+	/*
+	0101
+	1010
+	1111
+	*/
+	
 
 	return 0;
 }
