@@ -1,0 +1,12 @@
+inicializar crc en 0000
+
+	while(more bits to read from message){
+		get message bit
+		if(high-order bit of crc is 1){
+		shift crc and m << 1 and xor with lower r-bit of G
+		}
+		else{
+			shift crc and m <<1
+		}
+
+	}
