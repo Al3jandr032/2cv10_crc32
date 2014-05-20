@@ -1,0 +1,21 @@
+	02 	02
+0000 0010   	0000 0010
+0100 0000   	0100 0000
+02		04
+0000 0010   	0000 0100
+0100 0000   	0010 0000
+
+if(0x02&in)
+  cont=cont+1;
+if(0x04&in)
+  cont=cont+2;
+if(0x08&in)
+ cont=cont+4;
+if(0x10&in)
+ cont=cont+8;
+if(0x20&in)
+ cont=cont+16;
+if(0x40&in)
+ cont=cont+32;
+if(0x80&in)
+ cont=cont+64;

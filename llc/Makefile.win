@@ -1,0 +1,29 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.3.0.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = WpdPack/Examples-pcap/pktdump_ex/pktdump_ex_alex.o $(RES)
+LINKOBJ  = WpdPack/Examples-pcap/pktdump_ex/pktdump_ex_alex.o $(RES)
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc -L"C:/Users/Alejandro/Documents/GitHub/2cv10_crc32/llc/WpdPack/Lib" WpdPack/Lib/wpcap.lib 
+INCS     = -I"C:/Program Files/Dev-Cpp/MinGW32/include" -I"C:/Users/Alejandro/Documents/GitHub/2cv10_crc32/llc/WpdPack/Include" -I"C:/Users/Alejandro/Documents/GitHub/2cv10_crc32/llc/WpdPack/Include/pcap"
+CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW32/include" -I"C:/Users/Alejandro/Documents/GitHub/2cv10_crc32/llc/WpdPack/Include" -I"C:/Users/Alejandro/Documents/GitHub/2cv10_crc32/llc/WpdPack/Include/pcap"
+BIN      = llc.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+WpdPack/Examples-pcap/pktdump_ex/pktdump_ex_alex.o: WpdPack/Examples-pcap/pktdump_ex/pktdump_ex_alex.c
+	$(CPP) -c WpdPack/Examples-pcap/pktdump_ex/pktdump_ex_alex.c -o WpdPack/Examples-pcap/pktdump_ex/pktdump_ex_alex.o $(CXXFLAGS)
