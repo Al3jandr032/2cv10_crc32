@@ -184,7 +184,7 @@ int llc(unsigned char trama[], int longitud,  char resultado[],int longresultado
 	int llc,nr,ns;
 	char type[7],pf,t;
 	if((trama[12] < 0x05 && trama[13]< 0xdc)){
-		t=typeControlField((unsigned char)trama[17]);
+		t=typeControlField((unsigned char)trama[16]);
 		
 		//mac
 		//memcpy(resultado,trama,12);
@@ -300,7 +300,12 @@ int main(int argc, char **argv)
 
 		/* print pkt timestamp and pkt len */
 		printf("%ld:%ld (%ld)\n", header->ts.tv_sec, header->ts.tv_usec, header->len);			
-		
+		for (i=1; (i < header->caplen + 1 ) ; i++)
+		{
+			printf("%.2x ", pkt_data[i-1]);
+			if ( (i % LINE_LEN) == 0) printf("\n");
+		}
+		printf("\n");
 		/* Print the packet */
 		if(llc((unsigned char *) pkt_data, header->caplen,resultado,sizeof(resultado))){
 				for (i=0;i < 12; i++)
